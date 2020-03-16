@@ -13,15 +13,16 @@ ul {
  p {
      color: #444;
  }
- span.border{
+ .border.p-0{
      /* height :150px; */
      margin: 0;
      font-family: inherit;
      font-size: inherit;
      line-height: inherit;
-     padding: 5px;
+     padding: 15px;
+     cursor: pointer;
  }
- span.border:focus {
+ .border.p-0:focus {
      outline: 0;
  }
  
@@ -88,11 +89,15 @@ ul {
  
  @media (max-width: 768px) {
      .container {
-         padding: 50px 25px;
+         padding: 20px 25px;
      }
  
-     span.border {
-         margin-bottom: 10px;
+     .border.p-0 {
+         margin-top: 10px;
+         height: 30px;
+     }
+     .app{
+         padding: 0 !important;
      }
  
  }   

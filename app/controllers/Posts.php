@@ -11,7 +11,7 @@ class Posts extends Controller
     }
     public function index()
     {
-        $posts = $this->postModel->getPosts();
+        $posts = $this->postModel->getnotes();
         $data = [
             'posts' => $posts
         ];
@@ -34,14 +34,19 @@ class Posts extends Controller
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             $data = [
+                'subject' => trim($_POST['subject']),
                 'title' => trim($_POST['title']),
                 'body' => trim($_POST['body']),
                 'user_id' => $_SESSION['user_id'],
+                'subject_err' => '',
                 'title_err' => '',
                 'body_err' => '',
             ];
 
             //validate title
+            if (empty($data['subject'])) {
+                $data['subject_err'] = 'Please enter subject';
+            }
             if (empty($data['title'])) {
                 $data['title_err'] = 'Please enter title';
             }
@@ -52,7 +57,7 @@ class Posts extends Controller
             if (empty($data['title_err']) && empty($data['body_err'])) {
                 // die('success');
                 if ($this->postModel->addPost($data)) {
-                    flash('post_message', 'Post Added');
+                    flash('post_message', 'Note Added');
                     redirect('posts');
                 } else {
                     die('somethin went wrong');
@@ -62,6 +67,7 @@ class Posts extends Controller
             }
         } else {
             $data = [
+                'subject' => '',
                 'title' => '',
                 'body' => ''
             ];

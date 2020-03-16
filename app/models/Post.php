@@ -15,23 +15,24 @@ class Post
         $this->db = new Database;
     }
 
-    public function getPosts()
+    public function getnotes()
     {
         $this->db->query('SELECT *,
-                          posts.id as postId,
+                          notes.id as postId,
                           users.id as userId
-                          FROM posts
+                          FROM notes
                           INNER JOIN users
-                          ON posts.user_id = users.id
+                          ON notes.user_id = users.id
                           WHERE user_id=' . $_SESSION['user_id'] . '
-                          ORDER BY posts.created_at DESC
+                          ORDER BY notes.created_at DESC
                           ');
         $results = $this->db->resultSet();
         return $results;
     }
     public function addPost($data)
     {
-        $this->db->query('INSERT INTO posts (title, user_id, body) VALUES(:title, :user_id, :body)');
+        $this->db->query('INSERT INTO notes (subject, title, user_id, body) VALUES(:subject, :title, :user_id, :body)');
+        $this->db->bind(':subject', $data['subject']);
         $this->db->bind(':title', $data['title']);
         $this->db->bind(':user_id', $data['user_id']);
         $this->db->bind(':body', $data['body']);
@@ -45,7 +46,7 @@ class Post
     public function show($id)
     {
         $this->db->query("SELECT *
-                          FROM posts      
+                          FROM notes      
                           WHERE id=:id
                           ");
         $this->db->bind(':id', $id);
@@ -54,7 +55,7 @@ class Post
     }
     public function updatePost($data)
     {
-        $this->db->query('UPDATE posts SET title=:title, body=:body WHERE id =:id');
+        $this->db->query('UPDATE notes SET title=:title, body=:body WHERE id =:id');
         $this->db->bind(':id', $data['id']);
         $this->db->bind(':title', $data['title']);
         $this->db->bind(':body', $data['body']);
@@ -69,7 +70,7 @@ class Post
     }
     public function deletePost($id)
     {
-        $this->db->query('DELETE FROM posts where id=:id');
+        $this->db->query('DELETE FROM notes where id=:id');
         $this->db->bind(':id', $id);
 
         if ($this->db->execute()) {

@@ -1,19 +1,24 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
-<div class="card card-body mb-3 bg-transparent col-6 border-white mx-auto text-white-50">
-    <h4 class="card-title">
-        <?= $data['post']->title; ?>
-    </h4>
-    <div class=" p-2 mb-3">
-        Written by
-        <!-- <?= $data['user']->name; ?> on <?= $data['post']->created_at; ?> -->
-        <?php if ($data['user']->name == $_SESSION['user_name']) {
-            echo 'You on ' . $data['post']->created_at;
-        } else {
-            echo $data['user']->name . ' on ' . $data['post']->created_at;
-        }
-        ?>
-    </div>
-    <p class="card-text"><?= $data['post']->body; ?> </p>
+<!-- <ul id="view_note"> -->
+<div class="card card-body mb-3 bg-transparent col-md-6 border-white mx-auto text-white-50">
+    <ul id="view_note">
+        <li class="note">
+            <h4 class="card-title">
+                <?= $data['post']->title; ?>
+            </h4>
+            <a href="#" class="listen-note" title="Listen to Note">Listen to Note</a>
+            <div class=" p-2 mb-3">
+                Written by
+                <!-- <?= $data['user']->name; ?> on <?= $data['post']->created_at; ?> -->
+                <?php if ($data['user']->name == $_SESSION['user_name']) {
+                    echo 'You on ' . $data['post']->created_at;
+                } else {
+                    echo $data['user']->name . ' on ' . $data['post']->created_at;
+                }
+                ?>
+            </div>
+            <p class=" content card-text"><?= $data['post']->body; ?> </p>
+    </ul>
     <?php if ($data['post']->user_id == $_SESSION['user_id']) : ?>
         <hr>
         <div class="d-flex">
@@ -24,6 +29,7 @@
         </div>
     <?php endif; ?>
     <a href="<?= URLROOT; ?>posts/" class="btn btn-dark">Back</a>
+    </li>
 </div>
-
+<!-- </ul> -->
 <?php require APPROOT . '/views/inc/footer.php'; ?>

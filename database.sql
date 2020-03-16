@@ -1,8 +1,10 @@
-CREATE TABLE `posts` (
+CREATE TABLE `notes` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
+  `subject` varchar(255) NOT NULL,
   `title` varchar(255) NOT NULL,
   `body` text NOT NULL,
+  `audio_file` varchar(225) NULL,
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -14,13 +16,13 @@ CREATE TABLE `users` (
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-ALTER TABLE `posts`
+ALTER TABLE `notes`
   ADD PRIMARY KEY (`id`);
 
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
-ALTER TABLE `posts`
+ALTER TABLE `notes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE `users`

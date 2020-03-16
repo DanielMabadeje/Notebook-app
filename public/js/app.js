@@ -12,6 +12,7 @@ catch(e) {
 var noteTextarea = $('#note-textarea');
 var instructions = $('#recording-instructions');
 var notesList = $('ul#notes');
+var viewnote = $('ul#view_note');
 
 var noteContent = '';
 
@@ -99,19 +100,19 @@ $('#save-note-btn').on('click', function(e) {
   else {
     // Save note to localStorage.
     // The key is the dateTime with seconds, the value is the content of the note.
-    saveNote(new Date().toLocaleString(), noteContent);
+    // saveNote(new Date().toLocaleString(), noteContent);
 
-    // Reset variables and update UI.
-    noteContent = '';
-    renderNotes(getAllNotes());
-    noteTextarea.val('');
+    // // Reset variables and update UI.
+    // noteContent = '';
+    // renderNotes(getAllNotes());
+    // noteTextarea.val('');
     instructions.text('Note saved successfully.');
   }
       
 })
 
 
-notesList.on('click', function(e) {
+viewnote.on('click', function(e) {
   e.preventDefault();
   var target = $(e.target);
 
