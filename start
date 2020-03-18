@@ -1,13 +1,13 @@
 #!/usr/bin/env php
 <?php
-require __DIR__ . '/vendor/autoload.php';
+// require __DIR__ . '/vendor/autoload.php';
 
-use Symfony\Component\Console\Application;
+// use Symfony\Component\Console\Application;
 
-$application = new Application();
+// $application = new Application();
 
-# add our commands
-$application->add(new GreetCommand());
-$application->add(new MakeModel());
+// # add our commands
+// $application->add(new GreetCommand());
+// $application->add(new MakeModel());
 
-$application->run();
+// $application->run();
