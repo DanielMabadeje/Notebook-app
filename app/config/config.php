@@ -6,6 +6,6 @@ define('DB_PASS', '');
 define('DB_NAME', 'notes');
 //App Root
 define('APPROOT', dirname(dirname(__FILE__)));
-define('URLROOT', 'http://localhost/notes/');
+define('URLROOT', 'https://acesnote.herokuapp.com/');
 //site name
 define('SITENAME', 'Notes');
