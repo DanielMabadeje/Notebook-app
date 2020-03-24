@@ -1,6 +1,6 @@
 <?php
 //DB Params
-$url=  parse_url(postgres://kpodalbannhtcn:45d51c05b027cdd9fce5b614e744d6d1a7323a89d0c3162f5bacec5c94a13f34@ec2-34-197-212-240.compute-1.amazonaws.com:5432/d7hb6m2ef7tdct);
+$url=  parse_url('postgres://kpodalbannhtcn:45d51c05b027cdd9fce5b614e744d6d1a7323a89d0c3162f5bacec5c94a13f34@ec2-34-197-212-240.compute-1.amazonaws.com:5432/d7hb6m2ef7tdct');
 
 define('DB_HOST', $url["host"]);
 define('DB_USER', $url["user"]);
