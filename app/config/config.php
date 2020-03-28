@@ -6,9 +6,10 @@ define('DB_HOST', $url["host"]);
 define('DB_USER', $url["user"]);
 define('DB_PASS', $url["pass"]);
 
-var_dump(DB_HOST, DB_USER, DB_PASS);
-die;
+// var_dump(DB_HOST, DB_USER, DB_PASS);
+// die;
 define('DB_NAME', substr($url["path"], 1));
+var_dump(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 // define('DB_HOST', 'localhost');
 // define('DB_USER', 'root');
 // define('DB_PASS', '');
