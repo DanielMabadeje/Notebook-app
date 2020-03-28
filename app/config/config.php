@@ -5,6 +5,9 @@ $url=  parse_url('postgres://kpodalbannhtcn:45d51c05b027cdd9fce5b614e744d6d1a732
 define('DB_HOST', $url["host"]);
 define('DB_USER', $url["user"]);
 define('DB_PASS', $url["pass"]);
+
+var_dump(DB_HOST, DB_USER, DB_PASS);
+die;
 define('DB_NAME', substr($url["path"], 1));
 // define('DB_HOST', 'localhost');
 // define('DB_USER', 'root');
